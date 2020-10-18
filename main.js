@@ -13,8 +13,10 @@ const util = require('util')
 
 const PHP_CGI = shell.which('php-cgi');
 
-function find_file(url, php_dir, callback) {
-	var file = path.join(php_dir, url.pathname);
+function find_file(url, www_root, callback) {
+	var file = "";
+	file = path.join(www_root, url.pathname);
+	console.log("file", file)
 
 	fs.stat(file, function (err, stat) {
 		// File does not exist
@@ -23,14 +25,14 @@ function find_file(url, php_dir, callback) {
 				file = path.join(file, 'index.php');
 			}
 			if (file.includes(__dirname)) {
-				fs.exists(file, function (exists) {
-					console.log("File path exists:", file, exists)
-					callback(exists && file);
+				fs.stat(file, function (error) {
+					console.log("File path exists:", file, error)
+					callback(file);
 				});
 			} else {
-				fs.exists(path.join(__dirname, file), function (exists) {
-					console.log("No file path exists:", file, exists)
-					callback(exists && file);
+				fs.stat(path.join(__dirname, file), function (error) {
+					console.log("No file path exists:", file, error)
+					callback(file);
 				});
 			}
 		}
@@ -171,8 +173,9 @@ function run_php(req, response, next, url, file, exe_config) {
 	if (/.*?\.php$/.test(path.join(__dirname, file))) {
 		var res = '', err = '';
 		var php;
-
+		console.log(exe_config)
 		if (!!exe_config.cgi_path && exe_config.cgi_path !== '') {
+
 			console.log((exe_config.cgi_path.lastIndexOf("/") == exe_config.cgi_path.length - 1 ? exe_config.cgi_path : exe_config.cgi_path + "/") + "php-cgi" + strOptions(exe_config.options));
 
 			php = child.spawn(
@@ -246,24 +249,26 @@ function run_php(req, response, next, url, file, exe_config) {
 			response.end();
 		});
 	} else {
-		response.sendFile(file);
+		response.sendFile(req.url);
 	}
 }
 
-exports.cgi = function (php_root, exe_config) {
+exports.cgi = function (www_root, exe_config) {
 	return function (req, res, next) {
 
 		// stop stream until child-process is opened
 		req.pause();
+		console.log("url", req.url)
 		var url = URL.parse(req.url);
 
-		file = find_file(url, php_root, function (file) {
+		file = find_file(url, www_root, function (file) {
+			console.log(exe_config)
 			if (file) {
 				// console.log("find_file call", exe_config.php_cgi_path, file);
 				run_php(req, res, next, url, file, exe_config);
 			} else {
 				next();
 			}
-		})
-	};
+		}.bind(exe_config))
+	}.bind(exe_config);
 };

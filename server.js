@@ -6,6 +6,10 @@ var path = require("path");
 var app = express();
 var p = path.join("test/php");
 
-app.use("/", php.cgi(p, { cgi_path: '/usr/bin/', options: { "-c": "/etc/php.ini" } }));
+app.use("/", php.cgi(p, { cgi_path: '/usr/bin/', options: { "-c": "/etc/php.ini" } }))
+
+app.use("*", function(req, res) {
+    return res.send("Thank you for using node-cgi-php. Please map your urls")
+})
 app.listen(9090, '127.0.0.1');
 console.log("Server listening at 9090!");
