@@ -7,7 +7,7 @@ var php = require('../main');
 var path = require("path")
 
 var app = express();
-var p = path.join("test/php");
+var p = path.join("../www/php");
 
 app.use("/", php.cgi(p, { cgi_path: '/usr/bin/', options: { "-c": "/etc/php.ini" } }))
 
