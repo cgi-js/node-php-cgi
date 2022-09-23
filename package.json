@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "node ./server.js",
-    "test": "mocha"
+    "test": "mocha --reporter spec --recursive --config ./mocha.test.config.js"
   },
   "main": "./main.js",
   "dependencies": {
