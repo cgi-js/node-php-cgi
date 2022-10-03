@@ -272,3 +272,5 @@ exports.cgi = function (www_root, exe_config) {
 		}.bind(exe_config))
 	}.bind(exe_config);
 };
+
+exports.cgijs = require("cgijs");

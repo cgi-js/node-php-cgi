@@ -1,11 +1,13 @@
 
-NodeCGIEmbedded - run php scripts like wordpress, drupal, etc with node and cgi counter parts
----------------------------------------------------------
+# phpcgijs
 
-With Node PHP Embedded you can leverage the speed of node js and run all of the widely available php scripts directly inside your express site. 
+#### Run php scripts like wordpress, drupal, etc with node and cgi counter parts
+----------------------------------------------------------------------------
 
-This is a fork of http://github.com/mkschreder/node-php and has been modified for making this take dynamic PHP pathing, so that it can run without a PHP distribution installed on a machine and can work with an embedded PHP binary distribution.
+With Node PHP Embedded, you can leverage the speed of node.js and run all of the widely available php scripts directly inside your express site.
 
+
+This was originally a fork of http://github.com/mkschreder/node-php and has been modified for making this take dynamic PHP pathing, so that it can run without a PHP distribution installed on a machine and can work with an embedded PHP binary distribution.
 
 
 Installation
@@ -15,8 +17,32 @@ Installation
 npm install phpcgijs --save
 ```
 
-Usage
------
+
+
+Includes CGIJS Library as a dependancy
+---------------------------------------
+
+# cgijs
+
+
+#### Usage as `require("phpcgijs").cgijs` inbuilt dependency library APIs
+-------------------------------------------------------------------------
+
+*`CGIJS` is a library to run any `CGI` mode / `Interpreted language script` files, or connect to any web application server proxies, or manage processes in the system.*
+
+
+`CGIJS` library:
+
+- Supports running any `CGI` / `Interpreted Language scripts` in `any OS` that runs `node.js`.
+- Supports both `CGI` executables as well as `proxy` to `localhost`/ `remote` /`embedded servers` using proxying of multiple protocols (`http`, `websockets`, `tcp`, `udp`, `socks`, `ssh`, `ftp`).
+- Supports managing processes like `embedded` `server` executables, embedded `database` executables, or `any other` embedded/ non-embedded executables 
+
+
+You can view more about `cgijs` at [github.com/cgi-js](https://github.com/cgi-js/cgi-js) or install it directly at [npm cgijs](https://www.npmjs.com/package/cgijs)
+
+
+#### Usage as `require("phpcgijs").cgi` inbuilt dependency library APIs
+-------------------------------------------------------------------------
 
 To run php scripts with node js and express create the following script like below: 
 
@@ -65,24 +91,50 @@ console.log("Server listening at 9090!");
 
 ```
 
+
+
 Explanation
 -----------
 
-The script will pipe all files that end in the .php extension through the php parser. All other files will be served as static content. 
+The script will pipe all files that end in the .php extension through the php parser. All other files will be served as static content. Basic permalinks are supported but the support for them can probably be improved. 
 
-Basic permalinks are supported but the support for them can probably be improved. 
+You can also use the inbuilt `cgijs` API using the following features using the `require("phpcgijs").cgijs` API.
+
 
 Dependencies
 ------------
 
-# php-cgi
+
+#### Inbuilt phpcgijs `.cgi` usage
+-----------------------------------
+
 
 * You need to have the interpreter installed in the system in order to use this extension.
 * Alternatively, You can specify the full path of locally available php-cgi path. 
 * If custom path not specified in express, it tries to find the system installed php-cgi executable. If still unavailable, the server errors out.
 * TODO: 
-    - Add php.ini path config
-    - app.use("/", php.cgi("/path/to/phpscript", "to/php/cgi/path", '/path/to/php.ini')); 
+    - Add `php.ini` path config
+    - `app.use("/", php.cgi("/path/to/phpscript", "to/php/cgi/path", '/path/to/php.ini'));` 
+
+
+#### Inbuilt phpcgijs `.cgijs` usage
+-------------------------------------
+
+
+##### Node CGI Embedded - run interpreted scripts that support cgi using nodejs
+* [x] CGI file execution - Run any scripts that support CGI based serving/execution
+
+##### Node Web Proxy - run web proxies
+* [x] Running Proxies - Run any host that serves a web app, using proxy (HTTP, UDP, TCP, Websockets, Socks) and supports websocket implementation in web proxies
+
+##### Node Processes - Manage web servers, database processes, or other system processes or services
+* [x] Manage Processes or Services - Allows running and closing process Executables
+
+##### CGIJS Functionality Details
+* [x] The script should support piping all files of below interpreted languages including Python (2.x, 3.x) - `py`, Perl (Version Independent) - `plc`, `pld`, `pl`, PHP (Version Independent) - `php`, Ruby (Version Independent) - `rb`, Node.js (Version Independent) - `js`, CGI files  - `cgi`.
+* [x] The script should support piping all proxies of above languages and  Jsp (With Tomcat, or any webserver as proxy) , Aspx (With IIS, Apache, or any webserver as proxy), Jsp and Aspx (With Tomcat, Nginx, and Apache embedded)
+* [x] Some sections are pending to be tested but should function normally
+
 
 License
 -------
