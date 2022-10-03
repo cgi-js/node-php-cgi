@@ -129,4 +129,5 @@ data/logs/*
 data/recent/*
 data/user/*
 
-
+binaries/*
+data/*
