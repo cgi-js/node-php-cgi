@@ -121,13 +121,13 @@ Dependencies
 -------------------------------------
 
 
-##### Node CGI Embedded - run interpreted scripts that support cgi using nodejs
+##### Node CGI Embedded - run interpreted scripts that support cgi using nodejs - `.init` , `.file` API
 * [x] CGI file execution - Run any scripts that support CGI based serving/execution
 
-##### Node Web Proxy - run web proxies
+##### Node Web Proxy - run web proxies using `.proxy` API
 * [x] Running Proxies - Run any host that serves a web app, using proxy (HTTP, UDP, TCP, Websockets, Socks) and supports websocket implementation in web proxies
 
-##### Node Processes - Manage web servers, database processes, or other system processes or services
+##### Node Processes - Manage web servers, database processes, or other system processes or services using `.process` API
 * [x] Manage Processes or Services - Allows running and closing process Executables
 
 ##### CGIJS Functionality Details
