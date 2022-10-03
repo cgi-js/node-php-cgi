@@ -141,4 +141,4 @@ License
 
 Copyright © 2019 - till it works Ganesh B for DesktopCGI <desktopcgi@gmail.com>
 
-The MIT License (MIT) - See [LICENSE](./LICENSE) for further details.
+The MIT License (MIT) - See [LICENSE](https://github.com/cgi-js/node-php-cgi/blob/master/LICENSE) for further details.
