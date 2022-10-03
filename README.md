@@ -139,6 +139,6 @@ Dependencies
 License
 -------
 
-Copyright © 2019 - till it works Ganesh B <ganeshsurfs@gmail.com>
+Copyright © 2019 - till it works Ganesh B for DesktopCGI <desktopcgi@gmail.com>
 
 The MIT License (MIT) - See [LICENSE](./LICENSE) for further details.
