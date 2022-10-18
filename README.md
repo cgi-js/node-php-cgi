@@ -63,10 +63,7 @@ var p = path.join("test/php");
 // It can also be found in readme-php-options.txt (check for update in docs)
 // options ignore -h and --help
 
-app.use(
-  "/",
-  php.cgi(p, { cgi_path: "/usr/bin/", options: { "-c": "/etc/php.ini" } })
-);
+app.use("/", php.cgi(p, { cgi_path: "/usr/bin/", options: { "-c": "/etc/php.ini" } }));
 
 // 
 // Following is the STRUCTURE for providing the declaration of paths and options:
