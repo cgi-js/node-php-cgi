@@ -4,10 +4,7 @@
 #### Run php scripts like wordpress, drupal, etc with node and cgi counter parts
 ----------------------------------------------------------------------------
 
-With Node PHP Embedded, you can leverage the speed of node.js and run all of the widely available php scripts directly inside your express site.
-
-
-This was originally a fork of http://github.com/mkschreder/node-php and has been modified for making this take dynamic PHP pathing, so that it can run without a PHP distribution installed on a machine and can work with an embedded PHP binary distribution.
+With Node PHP Embedded (PHPCGIJS), you can leverage the speed of node.js and run all of the widely available php scripts directly inside your express site. This was originally a fork of http://github.com/mkschreder/node-php and has been modified for making this take dynamic PHP pathing, so that it can run without a PHP distribution installed on a machine and can work with an embedded PHP binary distribution.
 
 
 Installation
@@ -18,11 +15,12 @@ npm install phpcgijs --save
 ```
 
 
-
 Includes CGIJS Library as a dependancy
 ---------------------------------------
 
+
 # cgijs
+API for cgijs: `require("phpcgijs").cgijs`
 
 
 #### Usage as `require("phpcgijs").cgijs` inbuilt dependency library APIs
@@ -39,6 +37,10 @@ Includes CGIJS Library as a dependancy
 
 
 You can view more about `cgijs` at [github.com/cgi-js](https://github.com/cgi-js/cgi-js) or install it directly at [npm cgijs](https://www.npmjs.com/package/cgijs)
+
+
+# phpcgijs
+API for cgi: `require("phpcgijs").cgi`
 
 
 #### Usage as `require("phpcgijs").cgi` inbuilt dependency library APIs
@@ -90,7 +92,6 @@ app.listen(9090, '127.0.0.1');
 console.log("Server listening at 9090!");
 
 ```
-
 
 
 Explanation
