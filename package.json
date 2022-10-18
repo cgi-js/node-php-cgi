@@ -1,6 +1,6 @@
 {
   "name": "phpcgijs",
-  "description": "Node JS modules for running PHP in CGI mode",
+  "description": "Run and Execute PHP, JS, Ruby, Python 2, Python 3, ASPX, JSP, and CGI in CGI / Shell mode using node.js npm package / module. Includes cgijs. `CGIJS` is a Nodejs Module/library to run any `CGI` mode/`Interpreted language script` files like PHP, JS, Ruby, Python 2, Python 3, ASPX, JSP, and CGI, OR connect to any protocol or any web application server proxies, OR manage processes in the system.",
   "version": "1.0.0-beta8",
   "author": {
     "name": "Ganesh",
@@ -100,6 +100,9 @@
     "node perl bridge",
     "node jsp bridge",
     "node aspx bridge",
-    "node asp bridge"
+    "node asp bridge",
+    "run",
+    "execute",
+    "cgi script"
   ]
 }
