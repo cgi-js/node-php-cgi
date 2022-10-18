@@ -27,6 +27,10 @@
     "sinon": "9.2.1",
     "supertest": "4.0.2"
   },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "keywords": [
     "phpcgijs",
     "node",
