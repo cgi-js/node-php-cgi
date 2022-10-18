@@ -1,10 +1,18 @@
 # phpcgijs
 
-#### Run php scripts like wordpress, drupal, etc with node and cgi counter parts
+#### Run and Execute PHP, JS, Ruby, Python 2, Python 3, ASPX, JSP, and CGI in CGI / Shell mode using node.js npm package / module.
+
 
 ---
 
-With Node PHP Embedded (PHPCGIJS), you can leverage the speed of node.js and run all of the widely available php scripts directly inside your express site. This was originally a fork of http://github.com/mkschreder/node-php and has been modified for making this take dynamic PHP pathing, so that it can run without a PHP distribution installed on a machine and can work with an embedded PHP binary distribution.
+##### Run php scripts like wordpress, drupal, etc with node and cgi counter parts. phpcgijs also builds in a `CGIJS` library to run any `CGI` mode / `Interpreted language script` files, or connect to any web application server proxies, or manage processes in the system.
+
+
+---
+
+With Node PHP Embedded (PHPCGIJS), you can leverage the speed of node.js and run all of the widely available php scripts directly inside your express site.
+
+`PHPCGIJS` was originally a fork of http://github.com/mkschreder/node-php. `PHPCGIJS` was later modified for making this library take dynamic PHP pathing, so that it can run without a PHP (or other interpreted language) distribution installed on a machine. `PHPCGIJS` can work with an embedded PHP binary distribution. `PHPCGIJS` was later added with [`CGIJS`](https://www.npmjs.com/package/cgijs) to make this library comprehensively support most scripting languages long with running any web application behind a proxy using a webserver.
 
 ## Installation
 
