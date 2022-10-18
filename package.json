@@ -15,6 +15,10 @@
     "test": "mocha --reporter spec --recursive --config ./mocha.test.config.js"
   },
   "main": "./main.js",
+  "exports": {
+    "require": "./main.js",
+    "import": "./main.mjs"
+  },
   "dependencies": {
     "cgijs": "^1.1.0",
     "shelljs": "0.6.1"
