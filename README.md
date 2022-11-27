@@ -10,15 +10,29 @@
 
 ---
 
-With Node PHP Embedded (PHPCGIJS), you can leverage the speed of node.js and run all of the widely available php scripts directly inside your express site.
 
-`PHPCGIJS` was originally a fork of http://github.com/mkschreder/node-php. `PHPCGIJS` was later modified for making this library take dynamic PHP pathing, so that it can run without a PHP (or other interpreted language) distribution installed on a machine. `PHPCGIJS` can work with an embedded PHP binary distribution. `PHPCGIJS` was later added with [`CGIJS`](https://www.npmjs.com/package/cgijs) to make this library comprehensively support most scripting languages long with running any web application behind a proxy using a webserver.
+With Node PHP Embedded (PHPCGIJS), you can leverage the speed of node.js and run all of the widely available php scripts directly inside your node.js web application or site.
+
 
 ## Installation
 
 ```
 npm install phpcgijs --save
 ```
+
+#### **SECURITY NOTE**:
+
+
+- The process shell module is security agnostic and is dependant on your code.
+    - The package accesses the shell to run script executables using the node.js process module. Please consider your `security risks based on your executable's/ script's security risks`.
+- The proxy module is security agnostic and is dependant on your code.
+    - The `package has a LAN or WAN network proxy module AND does not create any proxies` by its own - unless specified by you. Please consider your custom created proxy's security risks.
+- The `package does not use Telemetry, nor Collect data Remotely, nor has Telemetry/Remote based Error collection` on its own.
+    - The package propogates errors for you to handle or collect errors/ data.
+
+
+# Library Features
+
 
 ## Includes CGIJS Library as a dependancy
 
@@ -101,6 +115,12 @@ console.log("Server listening at 9090!");
 The script will pipe all files that end in the .php extension through the php parser. All other files will be served as static content. Basic permalinks are supported but the support for them can probably be improved.
 
 You can also use the inbuilt `cgijs` API using the following features using the `require("phpcgijs").cgijs` API.
+
+
+### NOTE:
+
+`PHPCGIJS` was originally a fork of http://github.com/mkschreder/node-php. `PHPCGIJS` was later modified for making this library take dynamic PHP pathing, so that it can run without a PHP (or other interpreted language) distribution installed on a machine. `PHPCGIJS` can work with an embedded PHP binary distribution. `PHPCGIJS` was later added with [`CGIJS`](https://www.npmjs.com/package/cgijs) to make this library comprehensively support most scripting languages long with running any web application behind a proxy using a webserver.
+
 
 ## Dependencies
 
