@@ -14,11 +14,12 @@
 With Node PHP Embedded (PHPCGIJS), you can leverage the speed of node.js and run all of the widely available php scripts directly inside your node.js web application or site.
 
 
-## Installation
+# Installation
 
 ```
 npm install phpcgijs --save
 ```
+
 
 #### **SECURITY NOTE**:
 
@@ -31,10 +32,11 @@ npm install phpcgijs --save
     - The package propogates errors for you to handle or collect errors/ data.
 
 
+
 # Library Features
 
 
-## Includes CGIJS Library as a dependancy
+#### Includes CGIJS Library as a dependancy
 
 # cgijs
 
@@ -110,7 +112,7 @@ app.listen(9090, "127.0.0.1");
 console.log("Server listening at 9090!");
 ```
 
-## Explanation
+# Explanation
 
 The script will pipe all files that end in the .php extension through the php parser. All other files will be served as static content. Basic permalinks are supported but the support for them can probably be improved.
 
@@ -122,7 +124,7 @@ You can also use the inbuilt `cgijs` API using the following features using the 
 `PHPCGIJS` was originally a fork of http://github.com/mkschreder/node-php. `PHPCGIJS` was later modified for making this library take dynamic PHP pathing, so that it can run without a PHP (or other interpreted language) distribution installed on a machine. `PHPCGIJS` can work with an embedded PHP binary distribution. `PHPCGIJS` was later added with [`CGIJS`](https://www.npmjs.com/package/cgijs) to make this library comprehensively support most scripting languages long with running any web application behind a proxy using a webserver.
 
 
-## Dependencies
+# Dependencies
 
 #### Inbuilt phpcgijs `.cgi` usage
 
@@ -154,7 +156,7 @@ You can also use the inbuilt `cgijs` API using the following features using the 
 - [x] The script should support piping all proxies of above languages and Jsp (With Tomcat, or any webserver as proxy) , Aspx (With IIS, Apache, or any webserver as proxy), Jsp and Aspx (With Tomcat, Nginx, and Apache embedded)
 - [x] Some sections are pending to be tested but should function normally
 
-## License
+# License
 
 Copyright © 2019 - till it works Ganesh B for DesktopCGI <desktopcgi@gmail.com>
 
