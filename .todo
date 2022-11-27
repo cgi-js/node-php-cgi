@@ -1,0 +1,149 @@
+##### Node CGI Embedded - run interpreted scripts that support cgi using nodejs
+
+* [x] CGI file execution
+    - [x] Run any scripts that support CGI based serving/execution
+    - [x] Run multiple CGI executables/ Interpreters in one or multiple applications
+    - [x] Embed your own CGI/ Interpreted Language executables
+ 
+
+##### Node Web Proxy - run web proxies
+
+* [x] Running Proxies
+    - [x] Run any host that serves a web app, using proxy 
+    - [x] Run proxies for Application (Local / Remote)
+    - [x] Supports websocket implementation in web proxies
+    - [x] Run multiple proxies + websockets in one or multiple applications
+    - [x] Run multiple protocols for proxies using external libraries
+    - [] Run multiple protocols for proxies inbuilt
+
+
+##### Node Processes - Manage web servers, database processes, or other system processes or services
+
+* [x] Manage Processes or Services
+    - [x] Allows running and closing process Executables
+    - [x] Allows managing Embedding Web Servers, which can run web applications through proxies [Partially done]
+    - [x] Allows managing Embedded Database servers [Partially done]
+    - [x] Should run smoothly with Unsupported proxy servers/ processes/ services (not widely tested)
+* [x] Embedding
+    - [x] Multiple web servers in one or multiple applications [Partially done]
+    - [x] Multiple databases in one or multiple applications [Partially done]
+    - [x] Multiple processes and executables managed in one or multiple applications [Partially done]
+
+
+# Functionality Details
+
+##### The script should support piping all files of below interpreted languages:
+
+* [x] Python (2.x, 3.x) - `py` (for Python .py extension files. Needed for *nix systems)
+* [x] Perl (Version Independent) - `plc`, `pld`, `pl` (for Perl .pl, .plc, .pld extension files)
+* [x] PHP (Version Independent) - `php` (for .php extension files)
+* [x] Ruby (Version Independent) - `rb` (for Ruby .rb extension files)
+* [x] Node.js (Version Independent) - `js` (for Node.js .js extension files)
+
+
+##### The script should support piping all proxies of above languages and following:
+
+* [x] Jsp (With Tomcat, or any webserver as proxy)
+* [x] Aspx (With IIS, Apache, or any webserver as proxy)
+* [] Jsp (With Tomcat embedded) [TODO]
+* [] Aspx (With Nginx and Apache embedded) [TODO]
+
+
+##### The script currently allows working with (starting, stopping, restarting) following web servers:
+
+* [x] IIS (Allows Proxy)
+* [x] Nginx (Allows Proxy)
+* [x] Nginx (Allows Embed)
+* [x] Apache HTTPD (Allows Proxy)
+* [x] Apache HTTPD (Allows Embed)
+* [x] Apache TomCat (Allows Proxy)
+* [] Apache TomCat (Allows Embed) [TODO]
+* [] Mongoose (Allows Proxy) [PLANNED]
+* [] Mongoose (Allows Embed) [PLANNED]
+* [] Jetty (Allows Proxy) [PLANNED]
+* [] Jetty (Allows Embed) [PLANNED]
+* [] Putty (Allows Proxy) [PLANNED]
+* [] Putty (Allows Embed) [PLANNED]
+* [x] Other Proxy-able local/remote servers
+
+
+##### The script currently allows working with (starting, stopping, restarting) following databases and processes:
+
+* [x] Mysql
+* [x] MongoDB
+* [] PgSQL [TODO]
+* [] Redis [TODO]
+* [x] Other Processes for your application support
+
+
+##### TODO ITEMS
+
+Add:
+- [*] CGI File serving [Done]
+- [*] Proxy local and remote web servers [Done]
+- [*] Proxy supporting websockets [Done]
+- [*] Manual commands [Done]
+- [*] Command line options for all interpretors in config object [Done]
+- [*] Work with any executables/processes [Done]
+- [*] Work with embedding Servers (HTTPD, Tomcat[todo], Nginx) [Partially done]
+- [*] Work with embedding Database Servers (MySQL, PgSQL[todo], MongoDB) [Partially done]
+- [*] Work with other using generic command process functions and executables [Partially done]
+- [] Improve performance by reducing config parsing time. Consider singletons for non-dynamic configs [TODO]
+- [] Move cgi file serving to be based on processes execute implementation keeping current method of cgi.serve implementation same [TODO]
+- [] Add implementation of phpcgijs into cgijs - cgi.serve(filename, executable, args) without moving current method of implementation [TODO]
+- [] Deprecate phpcgijs in favour of cgijs [TODO]
+- [] Consider testing serving of js file as CGI executable like PHP, an option. Considering cgi-node as an option [TODO]
+- [] Consider adding serving CGI file (.cgi) like PHP, an option [TODO]
+- [] Consider adding tracer for errors. Reconsider error handling mechanism [TODO]
+- [] Consider adding inbuilt PHP, Python, Ruby, Perl custom config based development server proxy to package api [TODO]
+- [] Add middlewares for use with different frameworks for CGIJS CGI Files for all interpreted languages [TODO]
+        ** Consider function name require('cgijs').middlewares.file.frameworkname(...arguments...) [TODO]
+        ** Concept Credit - npm:http-php
+- [] Add common function for creation of proxies (HTTP+WS, UDP, TCP, Socks, gRPC, Sockets) [TODO]
+        ** Consider function name require('proxy').init(protocol, config, handlers)
+- [] Consider Adding and Differentiating MessagePattern with EventPattern in the next major version [TODO]
+        ** Concept Credit - https://docs.nestjs.com/microservices/nats as an example for Pattern differentiator
+        ** Check inline docs for .proxy.redirect section after line `redirect: {`
+        ** Current proxy file does not differentiate Patterns. The file currently differentiates communication based on just protocols
+- [] Consider Dependency Injection into CGIJS - https://github.com/mgechev/injection-js
+
+Modify:
+- [*] Make config and options dynamic based on config file for file based demos [Done]
+- [*] Config based serving for file, web (proxy) applications [Done]
+- [*] Add 'other' or 'custom' CGI executable option for unaccomodated Interpreted language support [Done]
+    - [*] IMPORTANT: Remove multiple libraries for httpserver and fix one [Done]
+- [] Tests for Production release version 1.0.0 - file module [Partially done]
+- [*] Tests for Production release version 1.0.0 - process module [Partially done]
+- [*] Tests for Production release version 1.0.0 - proxy module [Partially done]
+- [*] Tests for Production release version 1.0.0 - utils module [Partially done]
+- [] Check and Redo Authentication for proxy connections for VLAN proxies [TODO]
+- [] Consider adding inbuilt development server management (testing needed) for CGI executables like PHP, Ruby, Python, others [Testing]
+- [] Consider support for gRPC for proxy. Consider adding socket's module [TODO] 
+- [] Consider support for UDP for proxy. Consider adding socket's module [TODO] [Packages considered - udp-proxy**, http2udp, node-udp-forwarder, udp-messaging]
+- [] Consider adding support for Socks proxy. Plus support for Socks to http proxy [TODO] (Packages Considered: socks**, http-proxy-to-socks)
+- [*] Consider support for Other Protocols for proxy. Consider adding socket's module [Done]
+- [] Consider support for Other Protocols for proxy within package [TODO]
+- [] Test Session management frameworks in PHP, Python, and Java Web Applications in http and https proxies (Memory/ File/ Cache/ Database Sessions) [TODO]
+- [] Consider and test bi-directional communication with CGI Mode executables like PHP, Python, Ruby, Perl, etc [TODO]
+- [] Add JSDoc compatible typing based documentation
+        ** https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
+        ** https://jsdoc.app/tags-type.html
+        ** https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#type-expressions
+- [] Consider concurrency for the package https://github.com/mkschreder/node-php/issues/23
+
+
+Prioritization and Version Consideration
+
+High Priority, High Effort:
+    - [] Test Session management frameworks in PHP, Python, and Java Web Applications in http and https proxies (Memory/ File/ Cache/ Database Sessions) [Testing] (Version 1.2.0)
+
+High Priority, Low Effort:
+    - [] Inbuilt development server management (CGI executables like PHP, Ruby, Python, others) [Testing] (Version 1.1.1)
+    - [] Consider adding serving CGI file (.cgi) like PHP, an option [TODO] (Version 1.1.1)
+    - [] Consider and test bi-directional communication with CGI Mode executables like PHP, Python, Ruby, Perl, etc [Testing]  (Version 1.2.0)
+
+Low Priority, High Effort:
+    - [] Putty SSH tunneling (Check usage with Process and Create Proxy) [TODO] (Version 1.2.0)
+    - [] Mongoose web server (Check usage with Process and Create Proxy) [TODO]  (Version 1.2.0)
+    - [] Consider testing serving of js file as CGI executable like PHP, an option. Considering cgi-node as an option [TODO]  (Version 2.0.0)
+    - [] Consider support for Other Protocols for proxy within package [TODO] (Version 2.0.0)

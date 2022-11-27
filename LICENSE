@@ -34,3 +34,5 @@ Credits and Dependant licensing:
 - [http-proxy](https://www.npmjs.com/package/http-proxy)
     - node-http-proxy is an HTTP programmable proxying library that supports websockets. It is suitable for implementing components such as reverse proxies and load balancers. - https://www.npmjs.com/package/http-proxy
 
+- [cgijs](https://www.npmjs.com/package/cgijs)
+    - CGIJS is a library to run any CGI mode / Interpreted language script files, or connect to any web application server proxies, or manage processes in the system.
