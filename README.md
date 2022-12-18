@@ -38,6 +38,7 @@ npm install phpcgijs --save
 
 #### Includes CGIJS Library as a dependancy
 
+
 # cgijs
 
 API for cgijs: `require("phpcgijs").cgijs`
@@ -46,15 +47,17 @@ API for cgijs: `require("phpcgijs").cgijs`
 
 ---
 
-_`CGIJS` is a library to run any `CGI` mode / `Interpreted language script` files, or connect to any web application server proxies, or manage processes in the system._
+_`CGIJS` is a all featured library to run any `CGI` mode / `Interpreted language script` files, or connect to any web application server proxies, or manage processes in the system._
 
 `CGIJS` library:
 
 - Supports running any `CGI` / `Interpreted Language scripts` in `any OS` that runs `node.js`.
 - Supports both `CGI` executables as well as `proxy` to `localhost`/ `remote` /`embedded servers` using proxying of multiple protocols (`http`, `websockets`, `tcp`, `udp`, `socks`, `ssh`, `ftp`).
-- Supports managing processes like `embedded` `server` executables, embedded `database` executables, or `any other` embedded/ non-embedded executables
+- Supports managing processes like `embedded` `server` executables, embedded `database` executables, or `any other` embedded/ non-embedded executables 
+- Supports working with shell, json, ini, csv, yaml, and xml internally
 
 You can view more about `cgijs` at [github.com/cgi-js](https://github.com/cgi-js/cgi-js) or install it directly at [npm cgijs](https://www.npmjs.com/package/cgijs)
+
 
 # phpcgijs
 
