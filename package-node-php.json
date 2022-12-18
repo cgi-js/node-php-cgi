@@ -30,7 +30,7 @@
     "import": "./main.mjs"
   },
   "dependencies": {
-    "cgijs": "^1.1.0",
+    "cgijs": "^1.2.0",
     "shelljs": "^0.8.5"
   },
   "devDependencies": {
